@@ -1,10 +1,10 @@
 var questOne = {
     questn: "This is Question number 1",
-    answer1: "answer1",
+    answer1: "cookie",
     answer2: "answer2",
     answer3: "answer3",
     answer4: "answer4",
-    correct: "answer1"
+    correct: "cookie"
 }
 
 var questTwo = {
@@ -39,11 +39,13 @@ var questFive = {
     answer4: "answer"
 }
 
-
+console.log(questOne)
 var highScore = document.getElementById("highscore");
 var timer = document.getElementById("timer");
 var counter = document.getElementById("count");
 var startBtn = document.getElementById("start");
+var challenge = document.getElementById("challenge");
+var quiz = document.getElementById("quiz");
 var questions = document.getElementById("questn");
 var button1 = document.getElementById("btn1");
 var button2 = document.getElementById("btn2");
@@ -56,6 +58,9 @@ var timerCount = 100;
 
 //starts timer
 function quizStart(){
+
+    quiz.style.display = "block";
+    challenge.style.display  = "none";
 
   var timerStart = setInterval(function() {
     timerCount--;
@@ -71,6 +76,7 @@ function quizStart(){
 }
 
 function quizQuestns() {
+
     questions.textContent = questOne.questn;
     button1.textContent = questOne.answer1;
     button2.textContent = questOne.answer2;
@@ -82,7 +88,7 @@ function correctAnswer() {
 
     if (questOne.correct === questOne.answer1){
         answer.textContent = "Correct";
-    } else if (questOne.answer2 && questOne.answer3 && questOne.answer4){
+    } else {
         timerCount -= 10;
         counter.textContent = timerCount;
         answer.textContent = "Incorrect";
@@ -90,6 +96,7 @@ function correctAnswer() {
 }
 
 console.log(correctAnswer)
+
 function pickAnswer1() {
   correctAnswer()
 }
