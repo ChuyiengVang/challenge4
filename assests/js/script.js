@@ -1,45 +1,43 @@
-var questOne = {
-    questn: "This is Question number 1",
-    answer1: "cookie",
-    answer2: "answer2",
-    answer3: "answer3",
-    answer4: "answer4",
-    correct: "cookie"
-}
+var quizQuestions = [
+{
+   question: "Which is NOT a JavaScript date type?",
+   choices: ['Pickles', 'Strings','Booleans', 'Integers'],
+   answer: 'Pickles'
+},
+{
+    question: "Arrays can be used to store?",
+    choices: ['Numbers and Strings', 'Booleans', 'Arrays', 'All the above'],
+    answer: 'All the above'
+},
+{
+    question: "Commonly used data types DO NOT inlcude:",
+    choices: ['Strings', 'Booleans', 'Alerts', 'Numbers'],
+    answer: 'Alerts'
+},
+{
+    question: "JavaScript is a _______ language?",
+    choices: ['Object-Oriented', 'Object-Based', 'Procedural', 'None of the above'],
+    answer: 'Object-Oriented'
+},
+{
+    question: "Which of the following keywords is used to define a variable in Javascript?",
+    choices: ['var', 'let', 'Both A and B', 'None of the above'],
+    answer: 'Both A and B'
+},
+{
+    question: "Which of the following methods is used to access HTML elements using Javascript?",
+    choices: ['getElement()', 'getElementsByClassName()', 'Both A and B', 'None of the above'],
+    answer: 'Both A and B'
+},
+{
+    question: "Which function is used to serialize an object into a JSON string in Javascript?",
+    choices: ['stringify()', 'parse()', 'convert()', 'None of the above'],
+    answer: 'stringify()'
+},
+]
 
-var questTwo = {
-    questn: "Question number 2",
-    answer1: "answer",
-    answer2: "answer",
-    answer3: "answer",
-    answer4: "answer"
-}
+console.log()
 
-var questThree = {
-    questn: "Question number 3",
-    answer1: "answer",
-    answer2: "answer",
-    answer3: "answer",
-    answer4: "answer"
-}
-
-var questFour = {
-    questn: "Question number 4",
-    answer1: "answer",
-    answer2: "answer",
-    answer3: "answer",
-    answer4: "answer"
-}
-
-var questFive = {
-    questn: "Question number 5",
-    answer1: "answer",
-    answer2: "answer",
-    answer3: "answer",
-    answer4: "answer"
-}
-
-console.log(questOne)
 var highScore = document.getElementById("highscore");
 var timer = document.getElementById("timer");
 var counter = document.getElementById("count");
@@ -47,13 +45,17 @@ var startBtn = document.getElementById("start");
 var challenge = document.getElementById("challenge");
 var quiz = document.getElementById("quiz");
 var questions = document.getElementById("questn");
-var button1 = document.getElementById("btn1");
-var button2 = document.getElementById("btn2");
-var button3 = document.getElementById("btn3");
-var button4 = document.getElementById("btn4");
+var buttonA = document.getElementById("btn1");
+var buttonB = document.getElementById("btn2");
+var buttonC = document.getElementById("btn3");
+var buttonD = document.getElementById("btn4");
 var answer = document.getElementById("answer");
+var score = document.getElementById("score");
+var submitBtn = document.getElementById("submit");
 
-var timerCount = 100;
+//NEED FOR QUESTIONS TO RUN IN quizQuestns, starts at the first question
+var questionIndex = 0;
+var timerCount = 75;
 
 
 //starts timer
@@ -71,38 +73,22 @@ function quizStart(){
     }
 
   }, 1000);
-  //invokes function questions
+  //invokes function quizQuestns to start
  quizQuestns();
 }
 
 function quizQuestns() {
-
-    questions.textContent = questOne.questn;
-    button1.textContent = questOne.answer1;
-    button2.textContent = questOne.answer2;
-    button3.textContent = questOne.answer3;
-    button4.textContent = questOne.answer4
-}
+  questions.textContent = quizQuestions[questionIndex].question;
+  buttonA.textContent = quizQuestions[questionIndex].choices[0];
+  buttonB.textContent = quizQuestions[questionIndex].choices[1];
+  buttonC.textContent = quizQuestions[questionIndex].choices[2];
+  buttonD.textContent = quizQuestions[questionIndex].choices[3];
+} 
 
 function correctAnswer() {
 
-    if (questOne.correct === questOne.answer1){
-        answer.textContent = "Correct";
-    } else {
-        timerCount -= 10;
-        counter.textContent = timerCount;
-        answer.textContent = "Incorrect";
-    }
 }
 
-console.log(correctAnswer)
-
-function pickAnswer1() {
-  correctAnswer()
-}
+console.log(quizQuestions[questionIndex].question)
 
 startBtn.addEventListener("click", quizStart)
-button1.addEventListener("click", pickAnswer1)
-//button2.addEventListener("click",)
-//button3.addEventListener("click",)
-//button4.addEventListener("click",)
