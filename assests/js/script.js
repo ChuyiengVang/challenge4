@@ -49,14 +49,16 @@ var buttonA = document.getElementById("btn1");
 var buttonB = document.getElementById("btn2");
 var buttonC = document.getElementById("btn3");
 var buttonD = document.getElementById("btn4");
-var answer = document.getElementById("answer");
+var correctAns = document.getElementById("answer");
+var scoreForm = document.getElementById("quizForm");
 var score = document.getElementById("score");
 var submitBtn = document.getElementById("submit");
 
 //NEED FOR QUESTIONS TO RUN IN quizQuestns, starts at the first question
-var questionIndex = 0;
-var timerCount = 75;
+var currentQuestion = 0;
+console.log(currentQuestion);
 
+var timerCount = 75;
 
 //starts timer
 function quizStart(){
@@ -70,7 +72,8 @@ function quizStart(){
 
     if (timerCount <= 0) {
         clearInterval(timerStart);
-    }
+        yourScore();
+    } 
 
   }, 1000);
   //invokes function quizQuestns to start
@@ -78,17 +81,60 @@ function quizStart(){
 }
 
 function quizQuestns() {
-  questions.textContent = quizQuestions[questionIndex].question;
-  buttonA.textContent = quizQuestions[questionIndex].choices[0];
-  buttonB.textContent = quizQuestions[questionIndex].choices[1];
-  buttonC.textContent = quizQuestions[questionIndex].choices[2];
-  buttonD.textContent = quizQuestions[questionIndex].choices[3];
+                     //currentQuestion starts at set number, 0
+    questions.textContent = quizQuestions[currentQuestion].question;
+                      //choices[0] would choose the first string
+    buttonA.textContent = quizQuestions[currentQuestion].choices[0];
+    buttonB.textContent = quizQuestions[currentQuestion].choices[1];
+    buttonC.textContent = quizQuestions[currentQuestion].choices[2];
+    buttonD.textContent = quizQuestions[currentQuestion].choices[3];
 } 
 
-function correctAnswer() {
+function choosenAnswer(answer) {
+
+    if (quizQuestions[currentQuestion].answer !== quizQuestions[currentQuestion].choices[answer]) {
+        timerCount -= 10;
+        counter.textContent = timerCount;
+        correctAns.textContent = "Incorrect!!"
+    } else {
+        correctAns.textContent = "10 Points to Gryffindor!!!"
+    }
+    //currentQuestion++ goes to next question/object in order
+    currentQuestion++;
+    if (quizQuestions.length > currentQuestion) {
+        quizQuestns()
+    } else {
+        yourScore();
+    }
+}
+
+
+function yourScore() {
+    
+    quiz.style.display = "none";
+    scoreForm.style.display = "block";
+
+    score.textContent = timerCount;
+    timer.textContent = "Timer: " + timerCount;
+}
+
+function saveScore() {
 
 }
 
-console.log(quizQuestions[questionIndex].question)
+console.log(score.textContent = timerCount)
 
-startBtn.addEventListener("click", quizStart)
+startBtn.addEventListener("click", quizStart);
+buttonA.addEventListener("click", function buttonA() {
+    choosenAnswer(0);
+});
+buttonB.addEventListener("click", function buttonB() {
+    choosenAnswer(1);
+});
+buttonC.addEventListener("click", function buttonC() {
+    choosenAnswer(2);
+});
+buttonD.addEventListener("click", function buttonD() {
+    choosenAnswer(3);
+});
+//submitBtn.addEventListner("click", saveScore);
