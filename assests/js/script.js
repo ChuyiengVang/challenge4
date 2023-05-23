@@ -61,9 +61,12 @@ var homeBtn = document.getElementById("backbtn");
 
 //NEED FOR QUESTIONS TO RUN IN quizQuestns, starts at the first question
 var currentQuestion = 0;
-console.log(currentQuestion);
-
 var timerCount = 75;
+var timerStart
+var savedScores = localStorage.getItem("saved scores");
+var scoresList = [];
+var myScore;
+console.log(myScore);
 
 //starts timer
 function quizStart(){
@@ -109,8 +112,10 @@ function choosenAnswer(answer) {
     if (quizQuestions.length > currentQuestion) {
         quizQuestns()
     } else {
+    //stops the current timer where it's at
         clearInterval(timerStart);
         yourScore();
+
     }
 }
 
@@ -142,9 +147,14 @@ buttonD.addEventListener("click", function buttonD() {
 submitBtn.addEventListener("click", function highScoreScreen(event) {
 
     event.preventDefault();
-    
+
     scoreForm.style.display = "none";
     hiScore.style.display = "block";
 
-    
+    myScore = {
+    myInitials: initials.value,
+    scored: score.textContent
+    }
 });
+
+scoresList.push(myScore);
