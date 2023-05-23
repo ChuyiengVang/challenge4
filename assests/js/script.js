@@ -52,7 +52,12 @@ var buttonD = document.getElementById("btn4");
 var correctAns = document.getElementById("answer");
 var scoreForm = document.getElementById("quizForm");
 var score = document.getElementById("score");
+var initials = document.getElementById("initials");
 var submitBtn = document.getElementById("submit");
+var hiScore = document.getElementById("highscore");
+var hsList = document.getElementById("score-list");
+var clearButton = document.getElementById("clearhsbtn");
+var homeBtn = document.getElementById("backbtn");
 
 //NEED FOR QUESTIONS TO RUN IN quizQuestns, starts at the first question
 var currentQuestion = 0;
@@ -66,7 +71,7 @@ function quizStart(){
     quiz.style.display = "block";
     challenge.style.display  = "none";
 
-  var timerStart = setInterval(function() {
+    timerStart = setInterval(function() {
     timerCount--;
     counter.textContent = timerCount;
 
@@ -104,10 +109,12 @@ function choosenAnswer(answer) {
     if (quizQuestions.length > currentQuestion) {
         quizQuestns()
     } else {
+        clearInterval(timerStart);
         yourScore();
     }
 }
 
+console.log();
 
 function yourScore() {
     
@@ -115,14 +122,9 @@ function yourScore() {
     scoreForm.style.display = "block";
 
     score.textContent = timerCount;
-    timer.textContent = "Timer: " + timerCount;
-}
-
-function saveScore() {
 
 }
 
-console.log(score.textContent = timerCount)
 
 startBtn.addEventListener("click", quizStart);
 buttonA.addEventListener("click", function buttonA() {
@@ -137,4 +139,12 @@ buttonC.addEventListener("click", function buttonC() {
 buttonD.addEventListener("click", function buttonD() {
     choosenAnswer(3);
 });
-//submitBtn.addEventListner("click", saveScore);
+submitBtn.addEventListener("click", function highScoreScreen(event) {
+
+    event.preventDefault();
+    
+    scoreForm.style.display = "none";
+    hiScore.style.display = "block";
+
+    
+});
