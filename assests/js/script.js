@@ -54,16 +54,12 @@ var scoreForm = document.getElementById("quizForm");
 var score = document.getElementById("score");
 var initials = document.getElementById("initials");
 var submitBtn = document.getElementById("submit");
-var hiScore = document.getElementById("highscore");
-var hsList = document.getElementById("score-list");
-var clearButton = document.getElementById("clearhsbtn");
-var homeBtn = document.getElementById("backbtn");
 
 //NEED FOR QUESTIONS TO RUN IN quizQuestns, starts at the first question
 var currentQuestion = 0;
-console.log(currentQuestion);
-
 var timerCount = 75;
+var yourIntScore = (localStorage.getItem("timedscores"));
+var scoresList = [];
 
 //starts timer
 function quizStart(){
@@ -125,26 +121,53 @@ function yourScore() {
 
 }
 
+function saveScores(event) {
+
+    event.preventDefault();
+
+    yourIntScore = JSON.parse(localStorage.getItem("timedscores"));
+    
+    var myScore = {
+        initialEntered: initials.value,
+        scored: timerCount
+    }
+     //if lsgetitem has no object value
+    if (yourIntScore === null) {
+        scoresList;
+    } else {
+        scoresList = yourIntScore;
+    } 
+
+    //scoresList.push(myScore);
+    scoresList.push(myScore);
+
+    //stores scoreList/myScore
+    localStorage.setItem("timedscores", JSON.stringify(scoresList));
+
+    //redirects to the choosen html file
+    location.href="highscores.html"
+
+}
 
 startBtn.addEventListener("click", quizStart);
+
 buttonA.addEventListener("click", function buttonA() {
     choosenAnswer(0);
 });
+
 buttonB.addEventListener("click", function buttonB() {
     choosenAnswer(1);
 });
+
 buttonC.addEventListener("click", function buttonC() {
     choosenAnswer(2);
 });
+
 buttonD.addEventListener("click", function buttonD() {
     choosenAnswer(3);
 });
-submitBtn.addEventListener("click", function highScoreScreen(event) {
 
-    event.preventDefault();
-    
-    scoreForm.style.display = "none";
-    hiScore.style.display = "block";
-
-    
+submitBtn.addEventListener("click", function(event) {
+    saveScores(event);
 });
+
