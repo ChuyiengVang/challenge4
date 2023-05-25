@@ -12,10 +12,10 @@
 <header class="header">
   <div>
     <section class="highscores">
-      <a href="highscores.html">View High Scores</a>
+      <p href="highscores.html">View High Scores</p>
     </section>
   </div>
-  <div>
+  <div id="timerbox">
     <div id="timer">Timer: <span id="count">75</span></div>
   </div>
 </header>
@@ -31,14 +31,28 @@
 
   <div>
     <section id="quiz">
-      <p id="questn"></p>
+      <h3 id="questn"></h3>
        <ul id="buttons">
-         <li><button id="btn1"></button></li>
-         <li><button id="btn2"></button></li>
-         <li><button id="btn3"></button></li>
-         <li><button id="btn4"></button></li>
+         <li>
+          <button id="bttn1">A</button>
+          <p id="btn1"></p>
+        </li>
+         <li>
+          <button id="bttn2">B</button>
+          <p id="btn2"></p>
+        </li>
+         <li>
+          <button id="bttn3">C</button>
+          <p id="btn3"></p>
+        </li>
+         <li>
+          <button id="bttn4">D</button>
+          <p id="btn4"></p>
+        </li>
        </ul>
+       <div id="answerBox">
        <p id="answer"></p>
+       </div>
     </section>
   </div>
 

@@ -6,17 +6,16 @@ var newScores = document.createElement("li");
 
 var yourIntScore = JSON.parse(localStorage.getItem("timedscores"));
 
-hsList.appendChild(newScores);
+    for (var i = 0; i < localStorage.length; i++){
 
-function SavedHighScores() {
-
-for (var i = 0; i < yourIntScore.length; i++) {
-
-    newScores.textContent = yourIntScore[i].myInitials + ": " + yourIntScore[i].myScore;
-
-console.log();
-}
-}
+       
+        if((localStorage.key(i).indexOf("timedscores")) !== -1){
+        
+          newScores.textContent = (localStorage.getItem(localStorage.key(i)));
+          
+          hsList.appendChild(newScores);
+        }
+      }
 
 homeBtn.addEventListener("click", function homeScreen(){
     location.href="index.html";
@@ -30,5 +29,3 @@ clearButton.addEventListener("click", function eraseScores(){
     localStorage.removeItem("timedscores");
     }
 })
-
-SavedHighScores()
