@@ -63,10 +63,11 @@ var homeBtn = document.getElementById("backbtn");
 var currentQuestion = 0;
 var timerCount = 75;
 var timerStart
-var savedScores = localStorage.getItem("saved scores");
+var savedScores = JSON.parse(localStorage.getItem("timedscores"));
 var scoresList = [];
 var myScore;
-console.log(myScore);
+
+console.log();
 
 //starts timer
 function quizStart(){
@@ -77,6 +78,7 @@ function quizStart(){
     timerStart = setInterval(function() {
     timerCount--;
     counter.textContent = timerCount;
+
 
     if (timerCount <= 0) {
         clearInterval(timerStart);
@@ -130,6 +132,30 @@ function yourScore() {
 
 }
 
+function highScoreScreen(event) {
+    event.preventDefault();
+
+    savedScores = JSON.parse(localStorage.getItem("timedscores"));
+
+    myScore = {
+        myInitials: initials.value,
+        myScore: timerCount
+    }
+
+    if(savedScores === null) {
+        scoresList;
+    } else {
+        scoresList = savedScores
+    }
+
+    scoresList.push(myScore);
+
+    localStorage.setItem("timedscores", JSON.stringify(scoresList));
+
+
+    location.href="highscores.html";
+
+}
 
 startBtn.addEventListener("click", quizStart);
 buttonA.addEventListener("click", function buttonA() {
@@ -144,17 +170,6 @@ buttonC.addEventListener("click", function buttonC() {
 buttonD.addEventListener("click", function buttonD() {
     choosenAnswer(3);
 });
-submitBtn.addEventListener("click", function highScoreScreen(event) {
+submitBtn.addEventListener("click",highScoreScreen);
 
-    event.preventDefault();
 
-    scoreForm.style.display = "none";
-    hiScore.style.display = "block";
-
-    myScore = {
-    myInitials: initials.value,
-    scored: score.textContent
-    }
-});
-
-scoresList.push(myScore);
