@@ -25,9 +25,9 @@ var quizQuestions = [
     answer: 'Both A and B'
 },
 {
-    question: "Which of the following methods is used to access HTML elements using Javascript?",
-    choices: ['getElement()', 'getElementsByClassName()', 'Both A and B', 'None of the above'],
-    answer: 'Both A and B'
+    question: "Which is the correct way to write a comment in JavaScript?",
+    choices: ['{# ... #}', '<!--...-->', '// ....', '\\ ...'],
+    answer: '// ....'
 },
 {
     question: "Which function is used to serialize an object into a JSON string in Javascript?",
@@ -45,6 +45,10 @@ var startBtn = document.getElementById("start");
 var challenge = document.getElementById("challenge");
 var quiz = document.getElementById("quiz");
 var questions = document.getElementById("questn");
+var buttonASelect = document.getElementById("bttn1");
+var buttonBSelect = document.getElementById("bttn2");
+var buttonCSelect = document.getElementById("bttn3");
+var buttonDSelect = document.getElementById("bttn4");
 var buttonA = document.getElementById("btn1");
 var buttonB = document.getElementById("btn2");
 var buttonC = document.getElementById("btn3");
@@ -86,8 +90,8 @@ function quizStart(){
     } 
 
   }, 1000);
-  //invokes function quizQuestns to start
- quizQuestns();
+     //invokes function quizQuestns to start
+     quizQuestns();
 }
 
 function quizQuestns() {
@@ -158,16 +162,17 @@ function highScoreScreen(event) {
 }
 
 startBtn.addEventListener("click", quizStart);
-buttonA.addEventListener("click", function buttonA() {
+
+buttonASelect.addEventListener("click", function buttonA() {
     choosenAnswer(0);
 });
-buttonB.addEventListener("click", function buttonB() {
+buttonBSelect.addEventListener("click", function buttonB() {
     choosenAnswer(1);
 });
-buttonC.addEventListener("click", function buttonC() {
+buttonCSelect.addEventListener("click", function buttonC() {
     choosenAnswer(2);
 });
-buttonD.addEventListener("click", function buttonD() {
+buttonDSelect.addEventListener("click", function buttonD() {
     choosenAnswer(3);
 });
 submitBtn.addEventListener("click",highScoreScreen);
