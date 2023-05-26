@@ -1,215 +1,217 @@
 :root{
-
-}
-
-* {
-    box-sizing: border-box;
-    background-color:rgb(81, 80, 80);
-    font-family:Arial, Helvetica, sans-serif;
-}
-
-.header{
-    display: flex;
-    justify-content: space-between;
-}
-
-.highscores p {
-    background-color :aliceblue;
-    padding: 8px;
-    border-style: solid;
-    border-radius: 4px;
-}
-
-#timerbox {
-    display:flex;
-    align-items: center;
-}
-
-#timer {
-    background-color: aliceblue;
-    padding: 8px;
-    border-style: solid;
-    border-radius: 4px;
-}
-
-#count {
-    background-color: aliceblue;
-}
-
-.quiz-container{
-    display: flex;
-    justify-content: center;
-}
- 
-#challenge{
-    background-color: aliceblue;
-    margin-top:  16px;
-    border-style: solid;
-    width: 500px;
-    border-radius: 10px;
-    padding-bottom: 8px;
-}
-
-#challenge h3{
-    background-color: aliceblue;
-    text-align: center;
-}
-
-#challenge p {
-background-color:aliceblue;
-   padding-right: 80px;
-   padding-left: 80px;
-}
-
-#start {
-    position: relative;
-    left: 200px;
-    bottom: 5px;
-    padding: 10px;
-    background-color: rgb(145, 87, 87);
-    border-radius: 5px;
-}
-
-#quiz {
-    display: none;
-    background-color: aliceblue;
-    margin-top:  16px;
-    border-style: solid;
-    width: 500px;
-    border-radius: 10px;
-    padding-bottom: 8px;
-}
-
-#questn {
-    background-color:aliceblue;
-    text-align: center;
-}
-
-#quiz p{
-    background-color: aliceblue;
-    text-align: center;
-    font-weight: bold;
-}
-
-#quiz ul{
-   position: relative;
-   background-color:aliceblue;
-   list-style-type: none;
-   margin:0;
-
-}
-
-#quiz ul li {
-    background-color:aliceblue;
-    position:relative;
-    right: 35px;
-}
-
-#bttn1, #bttn2, #bttn3, #bttn4 {
-    position: relative;
-    left: 115px;
-    top: 35px;
-    background-color: rgb(145, 87, 87);
-    border-radius: 5px;
-    padding: 6px;
-}
-
-#answerBox {
-    background-color: aliceblue;
-    padding-top: 6px;
-    padding-bottom: 6px;
-}
-
-#answer {
-    display: flex;
-    justify-content: center;
-    font-size: 26px;
-    text-align: center;
-    padding-top: 10px;
-    text-decoration: overline;
-}
-
-#quizForm {
-    display: none;
-    background-color: aliceblue;
-    margin-top:  16px;
-    border-style: solid;
-    width: 500px;
-    border-radius: 10px;
-    padding-bottom: 8px;
-}
-
-#quizForm h3 {
-    background-color: aliceblue;
-    text-align: center;
-}
-
-#quizForm p, #score {
-    background-color: aliceblue;
-    text-align: center;
-}
-
-form {
-    display: flex;
-    justify-content: center;
-    background-color: aliceblue;
-}
-
-#initials {
- background-color: aliceblue;
-}
-
-#submit {
-    background-color: rgb(145, 87, 87);
-    margin-left: 5px;
-}
-
-#highscoreform {
-    display: flex;
-    justify-content: center;
-}
-
-#highscore {
-    background-color: aliceblue;
-    margin-top:  16px;
-    border-style: solid;
-    width: 500px;
-    border-radius: 10px;
-    padding-bottom: 8px;
-}
-
-#highscore h3 {
-    background-color: aliceblue;
-    text-align:center
-}
-#score-list {
-    background-color: aliceblue;
-    padding-left: 0;
-}
-
-#score-list li {
-    background-color: aliceblue;
-    list-style-type: none;
-    padding-left: 0;
-    text-align:center;
-}
-
-#twobtn {
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    background-color: aliceblue;
-}
-
-#clearhsbtn {
-    background-color: rgb(145, 87, 87);
-    padding: 3px;
-    border-radius: 3px;
-}
-
-#backbtn {
-    background-color: rgb(145, 87, 87);
-    margin-top: 6px;
-    padding: 3px;
-    border-radius: 3px;
-}
+    --boxColor: aliceblue;
+    --buttonColor: rgb(145, 87, 87);
+    
+    }
+    
+    * {
+        box-sizing: border-box;
+        background-color:rgb(81, 80, 80);
+        font-family:Arial, Helvetica, sans-serif;
+    }
+    
+    .header{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .highscores p {
+        background-color: var(--boxColor);
+        padding: 8px;
+        border-style: solid;
+        border-radius: 4px;
+    }
+    
+    #timerbox {
+        display:flex;
+        align-items: center;
+    }
+    
+    #timer {
+        background-color: var(--boxColor);
+        padding: 8px;
+        border-style: solid;
+        border-radius: 4px;
+    }
+    
+    #count {
+        background-color: var(--boxColor);
+    }
+    
+    .quiz-container{
+        display: flex;
+        justify-content: center;
+    }
+     
+    #challenge{
+        background-color:var(--boxColor);
+        margin-top:  16px;
+        border-style: solid;
+        width: 500px;
+        border-radius: 10px;
+        padding-bottom: 8px;
+    }
+    
+    #challenge h3{
+        background-color: var(--boxColor);
+        text-align: center;
+    }
+    
+    #challenge p {
+    background-color:var(--boxColor);
+       padding-right: 80px;
+       padding-left: 80px;
+    }
+    
+    #start {
+        position: relative;
+        left: 200px;
+        bottom: 5px;
+        padding: 10px;
+        background-color: var(--buttonColor);
+        border-radius: 5px;
+    }
+    
+    #quiz {
+        display: none;
+        background-color: var(--boxColor);
+        margin-top:  16px;
+        border-style: solid;
+        width: 500px;
+        border-radius: 10px;
+        padding-bottom: 8px;
+    }
+    
+    #questn {
+        background-color:var(--boxColor);
+        text-align: center;
+    }
+    
+    #quiz p{
+        background-color: var(--boxColor);
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    #quiz ul{
+       position: relative;
+       background-color:var(--boxColor);
+       list-style-type: none;
+       margin:0;
+    
+    }
+    
+    #quiz ul li {
+        background-color:var(--boxColor);
+        position:relative;
+        right: 35px;
+    }
+    
+    #bttn1, #bttn2, #bttn3, #bttn4 {
+        position: relative;
+        left: 115px;
+        top: 35px;
+        background-color: var(--buttonColor);
+        border-radius: 5px;
+        padding: 6px;
+    }
+    
+    #answerBox {
+        background-color: var(--boxColor);
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+    
+    #answer {
+        display: flex;
+        justify-content: center;
+        font-size: 26px;
+        text-align: center;
+        padding-top: 10px;
+        text-decoration: overline;
+    }
+    
+    #quizForm {
+        display: none;
+        background-color: var(--boxColor);
+        margin-top:  16px;
+        border-style: solid;
+        width: 500px;
+        border-radius: 10px;
+        padding-bottom: 8px;
+    }
+    
+    #quizForm h3 {
+        background-color: var(--boxColor);
+        text-align: center;
+    }
+    
+    #quizForm p, #score {
+        background-color: var(--boxColor);
+        text-align: center;
+    }
+    
+    form {
+        display: flex;
+        justify-content: center;
+        background-color: var(--boxColor);
+    }
+    
+    #initials {
+     background-color: var(--boxColor);
+    }
+    
+    #submit {
+        background-color: var(--buttonColor);
+        margin-left: 5px;
+    }
+    
+    #highscoreform {
+        display: flex;
+        justify-content: center;
+    }
+    
+    #highscore {
+        background-color: var(--boxColor);
+        margin-top:  16px;
+        border-style: solid;
+        width: 500px;
+        border-radius: 10px;
+        padding-bottom: 8px;
+    }
+    
+    #highscore h3 {
+        background-color: var(--boxColor);
+        text-align:center
+    }
+    #score-list {
+        background-color: var(--boxColor);
+        padding-left: 0;
+    }
+    
+    #score-list li {
+        background-color: var(--boxColor);
+        list-style-type: none;
+        padding-left: 0;
+        text-align:center;
+    }
+    
+    #twobtn {
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        background-color: var(--boxColor);
+    }
+    
+    #clearhsbtn {
+        background-color: var(--buttonColor);
+        padding: 3px;
+        border-radius: 3px;
+    }
+    
+    #backbtn {
+        background-color: var(--buttonColor);
+        margin-top: 6px;
+        padding: 3px;
+        border-radius: 3px;
+    }
