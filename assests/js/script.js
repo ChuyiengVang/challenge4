@@ -81,6 +81,7 @@ var quizQuestions = [
     
         timerStart = setInterval(function() {
         timerCount--;
+
         counter.textContent = timerCount;
     
     
@@ -176,5 +177,3 @@ var quizQuestions = [
         choosenAnswer(3);
     });
     submitBtn.addEventListener("click",highScoreScreen);
-    
-    
